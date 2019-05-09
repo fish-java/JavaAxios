@@ -113,32 +113,43 @@ public class AxiosOkHttp extends Axios{
     }
 
     @Override
-    public RequestEntity get(String url, Map<String, String> params, Map<String, String> headers) {
-        return null;
+    public ResponseEntity get(String url, Map<String, String> params, Map<String, String> headers) {
+        RequestEntity requestEntity = new RequestEntity();
+        requestEntity.setUrl(url);
+        requestEntity.setParams(params);
+        requestEntity.setHeaders(headers);
+        requestEntity.setMethod("GET");
+        return request(requestEntity);
     }
 
     @Override
-    public RequestEntity get(String url, Map<String, String> params) {
-        return null;
+    public ResponseEntity get(String url, Map<String, String> params) {
+        return get(url, params, null);
     }
 
     @Override
-    public RequestEntity get(String url) {
-        return null;
+    public ResponseEntity get(String url) {
+        return get(url, null, null);
     }
 
     @Override
-    public RequestEntity post(String url, Map<String, String> params, Map<String, String> headers, String body) {
-        return null;
+    public ResponseEntity post(String url, Map<String, String> params, Map<String, String> headers, String body) {
+        RequestEntity requestEntity = new RequestEntity();
+        requestEntity.setUrl(url);
+        requestEntity.setParams(params);
+        requestEntity.setHeaders(headers);
+        requestEntity.setMethod("POST");
+        requestEntity.setBody(body);
+        return request(requestEntity);
     }
 
     @Override
-    public RequestEntity post(String url, Map<String, String> params, String body) {
-        return null;
+    public ResponseEntity post(String url, Map<String, String> params, String body) {
+        return post(url, params, null, body);
     }
 
     @Override
-    public RequestEntity post(String url, String body) {
-        return null;
+    public ResponseEntity post(String url, String body) {
+        return post(url, null, null, body);
     }
 }

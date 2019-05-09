@@ -37,9 +37,9 @@ public abstract class Axios {
      * @param headers
      * @return
      */
-    public abstract RequestEntity get(String url, Map<String, String> params, Map<String, String> headers);
-    public abstract RequestEntity get(String url, Map<String, String> params);
-    public abstract RequestEntity get(String url);
+    public abstract ResponseEntity get(String url, Map<String, String> params, Map<String, String> headers);
+    public abstract ResponseEntity get(String url, Map<String, String> params);
+    public abstract ResponseEntity get(String url);
 
     /**
      * POST方法发起请求
@@ -49,7 +49,7 @@ public abstract class Axios {
      * @param body
      * @return
      */
-    public abstract RequestEntity post(String url, Map<String, String> params, Map<String, String> headers, String body);
-    public abstract RequestEntity post(String url, Map<String, String> params, String body);
-    public abstract RequestEntity post(String url, String body);
+    public abstract ResponseEntity post(String url, Map<String, String> params, Map<String, String> headers, String body);
+    public abstract ResponseEntity post(String url, Map<String, String> params, String body);
+    public abstract ResponseEntity post(String url, String body);
 }

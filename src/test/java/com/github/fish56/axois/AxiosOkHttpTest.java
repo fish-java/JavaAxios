@@ -36,4 +36,15 @@ public class AxiosOkHttpTest {
         System.out.println(responseEntity.getBody());
         System.out.println(JSONObject.toJSONString(responseEntity, true));
     }
+
+    @Test
+    public void get() {
+        Axios axios = new AxiosOkHttp();
+        ResponseEntity responseEntity = axios.get("https://github.com/fish56");
+        if (responseEntity.is2xx()) {
+            System.out.println(JSONObject.toJSONString(responseEntity.getBody(), true));
+        } else {
+            System.out.println(responseEntity.getBody());
+        }
+    }
 }

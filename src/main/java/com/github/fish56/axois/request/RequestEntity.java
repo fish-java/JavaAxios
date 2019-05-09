@@ -16,8 +16,25 @@ public class RequestEntity {
     private String url;
     // 初始化，使得get方法不会报错
     private Map<String, String> params = new HashMap<String, String>();
-    private Map<String, String> headers = new HashMap<String, String>();
+    private Map<String, String> headers = new HashMap<String, String>() ;
     private String body;
+
+    // 确保值不是null
+    public void setParams(Map<String, String> params) {
+        if (params == null) {
+            this.params = new HashMap<String, String>() ;
+        } else {
+            this.params = params;
+        }
+    }
+
+    public void setHeaders(Map<String, String> headers) {
+        if (headers == null) {
+            this.headers = new HashMap<String, String>() ;
+        } else {
+            this.headers = headers;
+        }
+    }
 
     public RequestEntity(String method, String url, Map<String, String> params, Map<String, String> headers, String body) {
         this.method = method;
