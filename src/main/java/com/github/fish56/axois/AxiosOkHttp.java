@@ -46,6 +46,8 @@ public class AxiosOkHttp extends Axios{
 
         // okhttp 禁止 GET 和 HEAD的方法发出body，真的服了，多余设置
         if (!method.equals("GET") && !method.equals("HEAD")){
+            // 防止post等请求的请求体为null
+            bodyString = bodyString == null ? "" : bodyString;
             body = RequestBody.create(mediaType, bodyString);
         }
 
@@ -63,7 +65,7 @@ public class AxiosOkHttp extends Axios{
         Request request = new Request.Builder()
                 .url(requestEntity.getFullUrl())
                 .headers(headers)
-                .method(requestEntity.getMethod(), null)
+                .method(requestEntity.getMethod(), body)
                 .build();
 
         return request;
